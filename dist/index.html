@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Portfolio of Nguyen Huynh Hong Phuoc, a Full Stack Developer focused on Next.js, NestJS, FastAPI, and computer vision."
+    />
+    <meta name="theme-color" content="#07111f" />
+    <title>Nguyen Huynh Hong Phuoc — Full Stack Developer</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Back to top">
+        <span class="brand-mark" aria-hidden="true">HP</span>
+        <span class="brand-copy">Nguyen Huynh Hong Phuoc</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#skills">Skills</a>
+        <a href="#journey">Journey</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Change theme">
+        <span class="theme-toggle__sun" aria-hidden="true">☼</span>
+        <span class="theme-toggle__moon" aria-hidden="true">◐</span>
+      </button>
+    </header>
+
+    <main id="main">
+      <section class="hero section-shell" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="status-dot"></span> Seeking a Full-stack Internship</div>
+          <h1 id="hero-title">I build complete products — from interface to image processing.</h1>
+          <p class="hero-intro">
+            I’m <strong>Nguyen Huynh Hong Phuoc</strong>, a final-year Information Technology student in Hanoi.
+            My work connects polished React interfaces, secure backend APIs, data models, and practical computer vision.
+          </p>
+          <div class="hero-actions">
+            <a class="button button--primary" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
+            <a class="button button--ghost" href="mailto:hongphuoc123465@gmail.com">Email me <span aria-hidden="true">↗</span></a>
+          </div>
+          <dl class="hero-stats" aria-label="Highlights">
+            <div>
+              <dt>10/10</dt>
+              <dd>Specialized project</dd>
+            </div>
+            <div>
+              <dt>03</dt>
+              <dd>End-to-end projects</dd>
+            </div>
+            <div>
+              <dt>2026</dt>
+              <dd>Expected graduation</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="hero-visual reveal" aria-label="Developer profile">
+          <div class="portrait-frame">
+            <img src="assets/portrait.png" alt="Portrait of Nguyen Huynh Hong Phuoc" width="195" height="227" />
+            <div class="portrait-caption">
+              <span>Full Stack Developer</span>
+              <span>Hanoi, Vietnam</span>
+            </div>
+          </div>
+          <div class="stack-map" aria-label="Core technology stack">
+            <span class="stack-map__label">My working stack</span>
+            <div class="stack-map__row"><span>Next.js</span><span>TypeScript</span><span>React</span></div>
+            <div class="stack-map__line" aria-hidden="true"></div>
+            <div class="stack-map__row"><span>NestJS</span><span>FastAPI</span><span>MongoDB</span></div>
+            <div class="stack-map__line stack-map__line--short" aria-hidden="true"></div>
+            <div class="stack-map__row stack-map__row--accent"><span>Python</span><span>OpenCV</span><span>NumPy</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="marquee" aria-label="Areas of expertise">
+        <div class="marquee-track" aria-hidden="true">
+          <span>Frontend Engineering</span><i>+</i><span>Backend APIs</span><i>+</i><span>Computer Vision</span><i>+</i>
+          <span>Frontend Engineering</span><i>+</i><span>Backend APIs</span><i>+</i><span>Computer Vision</span><i>+</i>
+        </div>
+      </section>
+
+      <section class="work section-shell" id="work" aria-labelledby="work-title">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-index">01 / Selected work</span>
+            <h2 id="work-title">Building systems that solve real workflows.</h2>
+          </div>
+          <p>Three projects covering automation, content management, and team operations.</p>
+        </div>
+
+        <article class="featured-project reveal">
+          <div class="project-spotlight" aria-hidden="true">
+            <div class="scanner-corners"><span></span><span></span><span></span><span></span></div>
+            <div class="answer-sheet">
+              <div class="answer-sheet__head"><b>OMR</b><span>Processing pipeline</span></div>
+              <div class="answer-row"><b>01</b><i></i><i class="is-marked"></i><i></i><i></i></div>
+              <div class="answer-row"><b>02</b><i></i><i></i><i></i><i class="is-marked"></i></div>
+              <div class="answer-row"><b>03</b><i class="is-marked"></i><i></i><i></i><i></i></div>
+              <div class="answer-row"><b>04</b><i></i><i></i><i class="is-marked"></i><i></i></div>
+              <div class="processing-line"></div>
+            </div>
+            <div class="score-chip"><strong>10/10</strong><span>Project score</span></div>
+          </div>
+
+          <div class="project-content">
+            <div class="project-number">Project / 01</div>
+            <h3>Smart OMR Grading System</h3>
+            <p class="project-lead">
+              An end-to-end grading platform that turns captured answer sheets into verified scores — combining
+              classroom management, authentication, image correction, bubble detection, and result review.
+            </p>
+            <ul class="project-outcomes">
+              <li>Designed the complete grading workflow across multiple exam codes and answer-sheet templates.</li>
+              <li>Built a FastAPI and OpenCV pipeline for marker detection, perspective correction, and answer recognition.</li>
+              <li>Added Excel import/export and QR-based mobile capture to reduce manual grading work.</li>
+            </ul>
+            <ul class="tag-list" aria-label="Technologies used">
+              <li>Next.js</li><li>NestJS</li><li>FastAPI</li><li>MongoDB</li><li>OpenCV</li><li>Docker</li>
+            </ul>
+            <a class="text-link" href="https://github.com/teamcho123-lgtm/smart-omr-grading-system" target="_blank" rel="noreferrer">
+              View repository <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-card__top">
+              <span class="project-number">Project / 02</span>
+              <a href="https://github.com/teamcho123-lgtm/Blog-Frontend" target="_blank" rel="noreferrer" aria-label="View Personal Blog repository">↗</a>
+            </div>
+            <h3>Personal Blog</h3>
+            <p>
+              A publishing experience with authentication, post CRUD, public and private visibility, likes,
+              comments, search, and an admin dashboard.
+            </p>
+            <ul class="tag-list" aria-label="Technologies used"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>LocalStorage</li></ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card__top">
+              <span class="project-number">Project / 03</span>
+              <a href="https://github.com/teamcho123-lgtm/Project-Management-System" target="_blank" rel="noreferrer" aria-label="View Project Management System repository">↗</a>
+            </div>
+            <h3>Project Management System</h3>
+            <p>
+              A collaborative task platform with four user roles, project and member management, comments,
+              activity history, and a Todo-to-Approval workflow.
+            </p>
+            <ul class="tag-list" aria-label="Project capabilities"><li>CRUD</li><li>RBAC</li><li>Sessions</li><li>Workflow</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="skills section-shell" id="skills" aria-labelledby="skills-title">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-index">02 / Capabilities</span>
+            <h2 id="skills-title">Comfortable across the whole stack.</h2>
+          </div>
+          <p>I care about the handoff between layers: clear interfaces, predictable APIs, and debuggable systems.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-block reveal">
+            <span class="skill-block__index">A</span>
+            <h3>Frontend</h3>
+            <p>Responsive interfaces and type-safe product flows.</p>
+            <ul><li>Next.js & React</li><li>TypeScript & JavaScript</li><li>Tailwind CSS & Ant Design</li><li>HTML & CSS</li></ul>
+          </article>
+          <article class="skill-block reveal">
+            <span class="skill-block__index">B</span>
+            <h3>Backend & Data</h3>
+            <p>Secure APIs, authentication, and structured data.</p>
+            <ul><li>NestJS & Node.js</li><li>FastAPI & Python</li><li>REST, JWT & Passport</li><li>MongoDB & MySQL</li></ul>
+          </article>
+          <article class="skill-block reveal">
+            <span class="skill-block__index">C</span>
+            <h3>Vision & Practice</h3>
+            <p>Applied image processing backed by solid fundamentals.</p>
+            <ul><li>OpenCV, NumPy & Pillow</li><li>OMR processing</li><li>OOP, MVC & algorithms</li><li>Git, debugging & testing</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="journey section-shell" id="journey" aria-labelledby="journey-title">
+        <div class="section-heading reveal">
+          <div>
+            <span class="section-index">03 / Journey</span>
+            <h2 id="journey-title">Learning through real delivery.</h2>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-date">Jan — Mar 2026</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <span>Work experience</span>
+              <h3>Software Development Intern · OLM</h3>
+              <p>
+                Contributed to automated multiple-choice grading software. Collaborated on feature testing,
+                defect discovery, debugging, and processing examination data through logical algorithms.
+              </p>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-date">2022 — 2026</div>
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-content">
+              <span>Education</span>
+              <h3>Bachelor of Information Technology</h3>
+              <p>Hanoi National University of Education · Final-year student</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact section-shell" id="contact" aria-labelledby="contact-title">
+        <div class="contact-panel reveal">
+          <span class="section-index">04 / Let’s connect</span>
+          <h2 id="contact-title">Have a product idea or an internship opportunity?</h2>
+          <p>I’m ready to learn fast, contribute across the stack, and turn requirements into working software.</p>
+          <div class="contact-actions">
+            <a class="button button--primary" href="mailto:hongphuoc123465@gmail.com">hongphuoc123465@gmail.com <span aria-hidden="true">↗</span></a>
+            <a class="button button--ghost" href="tel:+84976660690">+84 976 660 690</a>
+          </div>
+          <a class="github-link" href="https://github.com/teamcho123-lgtm" target="_blank" rel="noreferrer">GitHub · teamcho123-lgtm <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <p>Nguyen Huynh Hong Phuoc · Full Stack Developer</p>
+      <p>Designed around clarity, systems, and useful outcomes.</p>
+    </footer>
+  </body>
+</html>
