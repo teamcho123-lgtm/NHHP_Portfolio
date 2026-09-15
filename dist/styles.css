@@ -27,9 +27,10 @@
   --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-serif: Georgia, Cambria, "Times New Roman", serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --duration-fast: 160ms;
-  --duration-base: 320ms;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 220ms;
+  --duration-base: 420ms;
 }
 
 html[data-theme="light"] {
@@ -214,6 +215,7 @@ ul {
   box-shadow: 0 0 14px rgba(120, 168, 255, 0.38);
   transform: scaleX(0);
   transform-origin: left center;
+  transition: transform 110ms linear;
   will-change: transform;
 }
 
@@ -685,6 +687,7 @@ html[data-theme="light"] .theme-icon--moon {
   box-shadow: 0 10px 30px rgba(3, 12, 28, 0.22), inset 0 -3px 0 rgba(242, 196, 92, 0.12);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
+  will-change: transform;
 }
 
 .education-icon svg,
@@ -702,21 +705,21 @@ html[data-theme="light"] .theme-icon--moon {
   top: 5%;
   right: -2%;
   color: var(--accent-2);
-  animation: education-float-a 5.2s ease-in-out infinite;
+  animation: education-float-a 7.6s var(--ease-soft) infinite;
 }
 
 .education-icon--cap {
   top: 44%;
   left: -5%;
   color: var(--accent-3);
-  animation: education-float-b 6.1s ease-in-out -1.7s infinite;
+  animation: education-float-b 8.8s var(--ease-soft) -2.4s infinite;
 }
 
 .education-icon--assessment {
   right: -1%;
   bottom: 13%;
   color: var(--accent);
-  animation: education-float-c 4.8s ease-in-out -900ms infinite;
+  animation: education-float-c 8.1s var(--ease-soft) -1.2s infinite;
 }
 
 .profile-card,
@@ -735,7 +738,7 @@ html[data-theme="light"] .theme-icon--moon {
   padding: 14px;
   border-radius: 16px;
   transform: translate3d(var(--profile-x, 0), var(--profile-y, 0), 0) rotate(var(--profile-rotation, -2deg));
-  transition: transform 680ms var(--ease);
+  transition: transform 120ms linear;
   will-change: transform;
 }
 
@@ -799,7 +802,7 @@ html[data-theme="light"] .theme-icon--moon {
     linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 28px 28px;
   mask-image: linear-gradient(to bottom, #000, transparent 80%);
-  animation: grid-drift 18s linear infinite;
+  animation: grid-drift 28s linear infinite;
 }
 
 .portrait-wrap img {
@@ -863,7 +866,7 @@ html[data-theme="light"] .theme-icon--moon {
   border-top-color: var(--accent-2);
   border-radius: 13px;
   transform: translate3d(var(--system-x, 0), var(--system-y, 0), 0) rotate(var(--system-rotation, 1.5deg));
-  transition: transform 680ms var(--ease);
+  transition: transform 120ms linear;
   will-change: transform;
 }
 
@@ -1173,7 +1176,7 @@ html[data-theme="light"] .theme-icon--moon {
   height: 2px;
   background: #17bda2;
   box-shadow: 0 0 16px #17bda2;
-  animation: scan 3.2s ease-in-out infinite;
+  animation: scan 4.2s var(--ease-soft) infinite;
 }
 
 .score-card {
@@ -1217,11 +1220,11 @@ html[data-theme="light"] .theme-icon--moon {
 }
 
 .featured-project.is-visible .pipeline-step--active {
-  animation: active-step 2.8s ease-in-out 800ms infinite;
+  animation: active-step 3.6s var(--ease-soft) 800ms infinite;
 }
 
 .featured-project.is-visible .bubble-row i.marked {
-  animation: bubble-check 2.8s var(--ease) infinite;
+  animation: bubble-check 3.6s var(--ease) infinite;
 }
 
 .featured-project.is-visible .bubble-row:nth-child(3) i.marked {
@@ -1382,7 +1385,7 @@ html[data-theme="light"] .theme-icon--moon {
   content: "";
   opacity: var(--glow-opacity);
   pointer-events: none;
-  transition: opacity 260ms ease;
+  transition: opacity 420ms var(--ease-soft);
 }
 
 .tilt-card > * {
@@ -1586,7 +1589,7 @@ html[data-theme="light"] .theme-icon--moon {
 }
 
 .capability-card.is-visible .capability-icon svg {
-  animation: module-icon 3.6s ease-in-out infinite;
+  animation: module-icon 5.2s var(--ease-soft) infinite;
 }
 
 .capability-card:nth-child(2) .capability-icon svg {
@@ -1665,7 +1668,7 @@ html[data-theme="light"] .theme-icon--moon {
 }
 
 .capability-card.is-visible .vision-grid i:nth-child(5) {
-  animation: vision-focus 2.6s ease-in-out 900ms infinite;
+  animation: vision-focus 3.8s var(--ease-soft) 900ms infinite;
 }
 
 .practice-list {
@@ -1810,7 +1813,7 @@ html[data-theme="light"] .theme-icon--moon {
     0 0 0 46px rgba(112, 234, 212, 0.035),
     0 0 0 92px rgba(132, 148, 255, 0.025);
   content: "";
-  animation: orbit-drift 10s ease-in-out infinite alternate;
+  animation: orbit-drift 16s var(--ease-soft) infinite alternate;
 }
 
 .contact-panel__signal {
@@ -1913,12 +1916,12 @@ html[data-theme="light"] .theme-icon--moon {
 
 .js .reveal {
   opacity: 0;
-  filter: blur(7px);
-  transform: translateY(32px) scale(0.985);
+  filter: blur(4px);
+  transform: translateY(24px) scale(0.99);
   transition:
-    opacity 700ms var(--ease),
-    filter 700ms var(--ease),
-    transform 760ms var(--ease);
+    opacity 820ms var(--ease),
+    filter 820ms var(--ease),
+    transform 900ms var(--ease);
   transition-delay: var(--reveal-delay, 0ms);
 }
 
@@ -1932,12 +1935,22 @@ html[data-theme="light"] .theme-icon--moon {
   transform: perspective(950px) translate3d(0, var(--lift), 0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
 }
 
+.js .reveal.is-visible.tilt-card.motion-ready {
+  transition:
+    border-color var(--duration-base) var(--ease-soft),
+    box-shadow var(--duration-base) var(--ease-soft),
+    filter 180ms linear,
+    opacity 180ms linear,
+    transform 140ms linear;
+  transition-delay: 0ms;
+}
+
 .js .hero-copy > * {
   opacity: 0;
   transform: translateY(14px);
   transition:
-    opacity 620ms var(--ease),
-    transform 680ms var(--ease);
+    opacity 720ms var(--ease),
+    transform 800ms var(--ease);
 }
 
 .js .hero-copy.is-visible > * {
@@ -2088,42 +2101,42 @@ html[data-theme="light"] .theme-icon--moon {
 @keyframes education-float-a {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) rotate(-3deg);
+    transform: translate3d(0, 1px, 0) rotate(-1.5deg);
   }
   50% {
-    transform: translate3d(0, -10px, 0) rotate(3deg);
+    transform: translate3d(2px, -6px, 0) rotate(1.5deg);
   }
 }
 
 @keyframes education-float-b {
   0%,
   100% {
-    transform: translate3d(0, -4px, 0) rotate(4deg);
+    transform: translate3d(0, -2px, 0) rotate(2deg);
   }
   50% {
-    transform: translate3d(8px, 5px, 0) rotate(-3deg);
+    transform: translate3d(5px, 3px, 0) rotate(-1.5deg);
   }
 }
 
 @keyframes education-float-c {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) rotate(2deg);
+    transform: translate3d(0, 1px, 0) rotate(1deg);
   }
   50% {
-    transform: translate3d(-6px, -8px, 0) rotate(-4deg);
+    transform: translate3d(-4px, -5px, 0) rotate(-1.5deg);
   }
 }
 
 @keyframes module-icon {
   0%,
   100% {
-    opacity: 0.78;
+    opacity: 0.86;
     transform: translateY(0) scale(1);
   }
   50% {
     opacity: 1;
-    transform: translateY(-3px) scale(1.06);
+    transform: translateY(-2px) scale(1.035);
   }
 }
 

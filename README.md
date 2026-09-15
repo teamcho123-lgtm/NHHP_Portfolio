@@ -9,7 +9,7 @@ Portfolio cá nhân của **Nguyễn Huỳnh Hồng Phước**, định vị the
 - Dark / light theme theo tùy chọn hệ thống và người dùng.
 - Case study trực quan cho Smart OMR Grading System.
 - Bento grid kỹ năng, timeline kinh nghiệm và liên kết dự án thật.
-- Motion system gồm icon giáo dục tự chuyển động, stagger reveal, scroll progress, counter, parallax và card tilt theo con trỏ.
+- Motion system gồm icon giáo dục tự chuyển động, stagger reveal, scroll progress, counter, parallax và card tilt được nội suy mượt theo con trỏ.
 - Hỗ trợ bàn phím, focus state, skip link và `prefers-reduced-motion`.
 - Không framework, không dependency runtime: chỉ HTML, CSS và JavaScript thuần.
 

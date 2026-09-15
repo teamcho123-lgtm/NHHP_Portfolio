@@ -322,13 +322,25 @@ document.querySelectorAll('.project-grid, .capability-grid, .timeline').forEach(
     .forEach((item, index) => item.style.setProperty('--reveal-delay', `${index * 90}ms`));
 });
 
+function showReveal(item) {
+  item.classList.add('is-visible');
+
+  if (reducedMotion) {
+    item.classList.add('motion-ready');
+    return;
+  }
+
+  const delay = Number.parseFloat(item.style.getPropertyValue('--reveal-delay')) || 0;
+  window.setTimeout(() => item.classList.add('motion-ready'), 980 + delay);
+}
+
 if (reducedMotion || !('IntersectionObserver' in window)) {
-  revealItems.forEach((item) => item.classList.add('is-visible'));
+  revealItems.forEach(showReveal);
 } else {
   const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
+      showReveal(entry.target);
       observer.unobserve(entry.target);
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -7%' });
@@ -403,21 +415,34 @@ if (!('IntersectionObserver' in window)) {
 }
 
 if (!reducedMotion && finePointerQuery.matches) {
+  const approach = (current, target, amount) => current + (target - current) * amount;
+  const clampUnit = (value) => Math.min(Math.max(value, 0), 1);
   let pointerFrame = 0;
-  let pointerX = 0;
-  let pointerY = 0;
+  const pointer = {
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 3,
+    targetX: window.innerWidth / 2,
+    targetY: window.innerHeight / 3,
+  };
+
+  function animatePointerGlow() {
+    pointer.x = approach(pointer.x, pointer.targetX, 0.18);
+    pointer.y = approach(pointer.y, pointer.targetY, 0.18);
+    document.body.style.setProperty('--pointer-x', `${pointer.x.toFixed(1)}px`);
+    document.body.style.setProperty('--pointer-y', `${pointer.y.toFixed(1)}px`);
+
+    if (Math.abs(pointer.x - pointer.targetX) > 0.2 || Math.abs(pointer.y - pointer.targetY) > 0.2) {
+      pointerFrame = window.requestAnimationFrame(animatePointerGlow);
+    } else {
+      pointerFrame = 0;
+    }
+  }
 
   window.addEventListener('pointermove', (event) => {
-    pointerX = event.clientX;
-    pointerY = event.clientY;
-    if (pointerFrame) return;
-
-    pointerFrame = window.requestAnimationFrame(() => {
-      document.body.style.setProperty('--pointer-x', `${pointerX}px`);
-      document.body.style.setProperty('--pointer-y', `${pointerY}px`);
-      document.body.classList.add('has-pointer-glow');
-      pointerFrame = 0;
-    });
+    pointer.targetX = event.clientX;
+    pointer.targetY = event.clientY;
+    document.body.classList.add('has-pointer-glow');
+    if (!pointerFrame) pointerFrame = window.requestAnimationFrame(animatePointerGlow);
   }, { passive: true });
 
   document.documentElement.addEventListener('mouseleave', () => {
@@ -425,40 +450,126 @@ if (!reducedMotion && finePointerQuery.matches) {
   });
 
   const heroVisual = document.querySelector('.hero-visual');
+  const heroMotion = {
+    profileX: 0,
+    profileY: 0,
+    systemX: 0,
+    systemY: 0,
+    targetProfileX: 0,
+    targetProfileY: 0,
+    targetSystemX: 0,
+    targetSystemY: 0,
+    frame: 0,
+  };
+
+  function animateHeroMotion() {
+    heroMotion.profileX = approach(heroMotion.profileX, heroMotion.targetProfileX, 0.11);
+    heroMotion.profileY = approach(heroMotion.profileY, heroMotion.targetProfileY, 0.11);
+    heroMotion.systemX = approach(heroMotion.systemX, heroMotion.targetSystemX, 0.11);
+    heroMotion.systemY = approach(heroMotion.systemY, heroMotion.targetSystemY, 0.11);
+
+    heroVisual.style.setProperty('--profile-x', `${heroMotion.profileX.toFixed(2)}px`);
+    heroVisual.style.setProperty('--profile-y', `${heroMotion.profileY.toFixed(2)}px`);
+    heroVisual.style.setProperty('--system-x', `${heroMotion.systemX.toFixed(2)}px`);
+    heroVisual.style.setProperty('--system-y', `${heroMotion.systemY.toFixed(2)}px`);
+
+    const distance = Math.max(
+      Math.abs(heroMotion.profileX - heroMotion.targetProfileX),
+      Math.abs(heroMotion.profileY - heroMotion.targetProfileY),
+      Math.abs(heroMotion.systemX - heroMotion.targetSystemX),
+      Math.abs(heroMotion.systemY - heroMotion.targetSystemY),
+    );
+
+    if (distance > 0.02) {
+      heroMotion.frame = window.requestAnimationFrame(animateHeroMotion);
+    } else {
+      heroMotion.frame = 0;
+    }
+  }
+
+  function requestHeroMotion() {
+    if (!heroMotion.frame) heroMotion.frame = window.requestAnimationFrame(animateHeroMotion);
+  }
 
   heroVisual?.addEventListener('pointermove', (event) => {
     const bounds = heroVisual.getBoundingClientRect();
-    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-    heroVisual.style.setProperty('--profile-x', `${x * -9}px`);
-    heroVisual.style.setProperty('--profile-y', `${y * -7}px`);
-    heroVisual.style.setProperty('--system-x', `${x * 13}px`);
-    heroVisual.style.setProperty('--system-y', `${y * 10}px`);
+    const x = clampUnit((event.clientX - bounds.left) / bounds.width) - 0.5;
+    const y = clampUnit((event.clientY - bounds.top) / bounds.height) - 0.5;
+    heroMotion.targetProfileX = x * -7;
+    heroMotion.targetProfileY = y * -5;
+    heroMotion.targetSystemX = x * 10;
+    heroMotion.targetSystemY = y * 7.5;
+    requestHeroMotion();
   });
 
   heroVisual?.addEventListener('pointerleave', () => {
-    heroVisual.style.setProperty('--profile-x', '0px');
-    heroVisual.style.setProperty('--profile-y', '0px');
-    heroVisual.style.setProperty('--system-x', '0px');
-    heroVisual.style.setProperty('--system-y', '0px');
+    heroMotion.targetProfileX = 0;
+    heroMotion.targetProfileY = 0;
+    heroMotion.targetSystemX = 0;
+    heroMotion.targetSystemY = 0;
+    requestHeroMotion();
   });
 
   document.querySelectorAll('.project-card, .capability-card').forEach((card) => {
     card.classList.add('tilt-card');
+    const motion = {
+      tiltX: 0,
+      tiltY: 0,
+      glowX: 50,
+      glowY: 50,
+      targetTiltX: 0,
+      targetTiltY: 0,
+      targetGlowX: 50,
+      targetGlowY: 50,
+      frame: 0,
+    };
+
+    function animateCardMotion() {
+      motion.tiltX = approach(motion.tiltX, motion.targetTiltX, 0.15);
+      motion.tiltY = approach(motion.tiltY, motion.targetTiltY, 0.15);
+      motion.glowX = approach(motion.glowX, motion.targetGlowX, 0.18);
+      motion.glowY = approach(motion.glowY, motion.targetGlowY, 0.18);
+
+      card.style.setProperty('--tilt-x', `${motion.tiltX.toFixed(2)}deg`);
+      card.style.setProperty('--tilt-y', `${motion.tiltY.toFixed(2)}deg`);
+      card.style.setProperty('--glow-x', `${motion.glowX.toFixed(1)}%`);
+      card.style.setProperty('--glow-y', `${motion.glowY.toFixed(1)}%`);
+
+      const distance = Math.max(
+        Math.abs(motion.tiltX - motion.targetTiltX),
+        Math.abs(motion.tiltY - motion.targetTiltY),
+        Math.abs(motion.glowX - motion.targetGlowX) / 10,
+        Math.abs(motion.glowY - motion.targetGlowY) / 10,
+      );
+
+      if (distance > 0.02) {
+        motion.frame = window.requestAnimationFrame(animateCardMotion);
+      } else {
+        motion.frame = 0;
+      }
+    }
+
+    function requestCardMotion() {
+      if (!motion.frame) motion.frame = window.requestAnimationFrame(animateCardMotion);
+    }
 
     card.addEventListener('pointermove', (event) => {
       const bounds = card.getBoundingClientRect();
-      const x = (event.clientX - bounds.left) / bounds.width;
-      const y = (event.clientY - bounds.top) / bounds.height;
-      card.style.setProperty('--tilt-x', `${(0.5 - y) * 4.5}deg`);
-      card.style.setProperty('--tilt-y', `${(x - 0.5) * 5.5}deg`);
-      card.style.setProperty('--glow-x', `${x * 100}%`);
-      card.style.setProperty('--glow-y', `${y * 100}%`);
+      const x = clampUnit((event.clientX - bounds.left) / bounds.width);
+      const y = clampUnit((event.clientY - bounds.top) / bounds.height);
+      motion.targetTiltX = (0.5 - y) * 3.2;
+      motion.targetTiltY = (x - 0.5) * 4;
+      motion.targetGlowX = x * 100;
+      motion.targetGlowY = y * 100;
+      requestCardMotion();
     });
 
     card.addEventListener('pointerleave', () => {
-      card.style.setProperty('--tilt-x', '0deg');
-      card.style.setProperty('--tilt-y', '0deg');
+      motion.targetTiltX = 0;
+      motion.targetTiltY = 0;
+      motion.targetGlowX = 50;
+      motion.targetGlowY = 50;
+      requestCardMotion();
     });
   });
 }
