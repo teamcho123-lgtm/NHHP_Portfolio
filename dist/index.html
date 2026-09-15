@@ -1,169 +1,265 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-language="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfolio of Nguyen Huynh Hong Phuoc, a Full Stack Developer focused on Next.js, NestJS, FastAPI, and computer vision."
+      content="Portfolio of Nguyen Huynh Hong Phuoc — a Full Stack Developer building accessible interfaces, secure APIs, and practical computer vision systems."
     />
     <meta name="theme-color" content="#07111f" />
+    <meta name="color-scheme" content="dark light" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nguyen Huynh Hong Phuoc — Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Full-stack engineering, computer vision, and product-minded problem solving."
+    />
     <title>Nguyen Huynh Hong Phuoc — Full Stack Developer</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="Back to top">
+      <a class="brand" href="#top" aria-label="Back to top" data-i18n-aria="backTop">
         <span class="brand-mark" aria-hidden="true">HP</span>
-        <span class="brand-copy">Nguyen Huynh Hong Phuoc</span>
+        <span class="brand-copy">
+          <strong>Hong Phuoc</strong>
+          <small>Full Stack Developer</small>
+        </span>
       </a>
 
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
-        <span></span><span></span><span></span>
-        <span class="sr-only">Toggle navigation</span>
-      </button>
-
-      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation">
-        <a href="#work">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#journey">Journey</a>
-        <a href="#contact">Contact</a>
+      <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-i18n-aria="primaryNav">
+        <a href="#work" data-i18n="navWork">Work</a>
+        <a href="#skills" data-i18n="navSkills">Toolkit</a>
+        <a href="#journey" data-i18n="navJourney">Journey</a>
+        <a href="#contact" data-i18n="navContact">Contact</a>
       </nav>
 
-      <button class="theme-toggle" type="button" aria-label="Switch to light theme" title="Change theme">
-        <span class="theme-toggle__sun" aria-hidden="true">☼</span>
-        <span class="theme-toggle__moon" aria-hidden="true">◐</span>
-      </button>
+      <div class="header-actions">
+        <button class="language-toggle" type="button" aria-label="Switch to Vietnamese" data-language-toggle>
+          <span class="language-option is-active" data-language-label="en">EN</span>
+          <span class="language-divider" aria-hidden="true"></span>
+          <span class="language-option" data-language-label="vi">VI</span>
+        </button>
+
+        <button class="theme-toggle icon-button" type="button" aria-label="Switch to light theme" title="Change theme">
+          <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="3.5"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+          </svg>
+          <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.4 15.2A8.5 8.5 0 0 1 8.8 3.6 8.5 8.5 0 1 0 20.4 15.2Z"></path>
+          </svg>
+        </button>
+
+        <button class="nav-toggle icon-button" type="button" aria-expanded="false" aria-controls="primary-nav">
+          <span></span><span></span><span></span>
+          <span class="sr-only" data-i18n="toggleNav">Toggle navigation</span>
+        </button>
+      </div>
     </header>
 
     <main id="main">
       <section class="hero section-shell" id="top" aria-labelledby="hero-title">
         <div class="hero-copy reveal">
-          <div class="eyebrow"><span class="status-dot"></span> Seeking a Full-stack Internship</div>
-          <h1 id="hero-title">I build complete products — from interface to image processing.</h1>
-          <p class="hero-intro">
-            I’m <strong>Nguyen Huynh Hong Phuoc</strong>, a final-year Information Technology student in Hanoi.
-            My work connects polished React interfaces, secure backend APIs, data models, and practical computer vision.
-          </p>
-          <div class="hero-actions">
-            <a class="button button--primary" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
-            <a class="button button--ghost" href="mailto:hongphuoc123465@gmail.com">Email me <span aria-hidden="true">↗</span></a>
+          <div class="availability-pill">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span data-i18n="availability">Available for a Full-stack Internship</span>
           </div>
-          <dl class="hero-stats" aria-label="Highlights">
+
+          <p class="hero-kicker" data-i18n="heroKicker">FULL-STACK · COMPUTER VISION · PRODUCT THINKING</p>
+          <h1 id="hero-title">
+            <span data-i18n="heroTitleStart">I turn complex workflows into</span>
+            <span class="text-gradient" data-i18n="heroTitleAccent">clear, working products.</span>
+          </h1>
+          <p class="hero-intro" data-i18n="heroIntro">
+            I’m Nguyen Huynh Hong Phuoc, an Information Technology student in Hanoi. I connect thoughtful
+            interfaces, secure APIs, reliable data, and practical image processing into complete experiences.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button--primary" href="#work">
+              <span data-i18n="exploreWork">Explore selected work</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 7 10 10M17 7v10H7"></path></svg>
+            </a>
+            <a class="button button--secondary" href="mailto:hongphuoc123465@gmail.com">
+              <span data-i18n="startConversation">Start a conversation</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6"></path></svg>
+            </a>
+          </div>
+
+          <dl class="hero-stats" aria-label="Portfolio highlights" data-i18n-aria="highlights">
             <div>
               <dt>10/10</dt>
-              <dd>Specialized project</dd>
+              <dd data-i18n="statProject">Specialized project</dd>
             </div>
             <div>
               <dt>03</dt>
-              <dd>End-to-end projects</dd>
+              <dd data-i18n="statProducts">End-to-end products</dd>
             </div>
             <div>
-              <dt>2026</dt>
-              <dd>Expected graduation</dd>
+              <dt>2022—26</dt>
+              <dd data-i18n="statEducation">IT education</dd>
             </div>
           </dl>
         </div>
 
-        <aside class="hero-visual reveal" aria-label="Developer profile">
-          <div class="portrait-frame">
-            <img src="assets/portrait.png" alt="Portrait of Nguyen Huynh Hong Phuoc" width="195" height="227" />
-            <div class="portrait-caption">
-              <span>Full Stack Developer</span>
-              <span>Hanoi, Vietnam</span>
+        <aside class="hero-visual reveal" aria-label="Developer profile" data-i18n-aria="developerProfile">
+          <div class="profile-card">
+            <div class="profile-card__topline">
+              <span>PROFILE / 01</span>
+              <span class="profile-card__signal"><i aria-hidden="true"></i> HANOI, VN</span>
+            </div>
+            <div class="portrait-wrap">
+              <div class="portrait-grid" aria-hidden="true"></div>
+              <img src="assets/portrait.png" alt="Portrait of Nguyen Huynh Hong Phuoc" width="195" height="227" />
+              <div class="portrait-tag">FULL STACK</div>
+            </div>
+            <div class="profile-card__identity">
+              <div>
+                <span data-i18n="profileNameLabel">Name</span>
+                <strong>Nguyen Huynh Hong Phuoc</strong>
+              </div>
+              <div>
+                <span data-i18n="profileFocusLabel">Focus</span>
+                <strong data-i18n="profileFocus">Web systems + Computer Vision</strong>
+              </div>
             </div>
           </div>
-          <div class="stack-map" aria-label="Core technology stack">
-            <span class="stack-map__label">My working stack</span>
-            <div class="stack-map__row"><span>Next.js</span><span>TypeScript</span><span>React</span></div>
-            <div class="stack-map__line" aria-hidden="true"></div>
-            <div class="stack-map__row"><span>NestJS</span><span>FastAPI</span><span>MongoDB</span></div>
-            <div class="stack-map__line stack-map__line--short" aria-hidden="true"></div>
-            <div class="stack-map__row stack-map__row--accent"><span>Python</span><span>OpenCV</span><span>NumPy</span></div>
+
+          <div class="system-card" aria-label="Current technology system" data-i18n-aria="stackSystem">
+            <div class="system-card__header">
+              <span data-i18n="stackTitle">CURRENT TOOLKIT</span>
+              <span class="system-card__status" data-i18n="stackStatus">READY</span>
+            </div>
+            <div class="code-line"><span>01</span><code>interface</code><b> Next.js + React</b></div>
+            <div class="code-line"><span>02</span><code>service</code><b> NestJS + FastAPI</b></div>
+            <div class="code-line"><span>03</span><code>vision</code><b> OpenCV + NumPy</b></div>
+            <div class="code-line"><span>04</span><code>data</code><b> MongoDB + MySQL</b></div>
+            <div class="system-card__footer"><span>TYPE-SAFE</span><span>API-FIRST</span><span>USER-FOCUSED</span></div>
           </div>
         </aside>
       </section>
 
-      <section class="marquee" aria-label="Areas of expertise">
-        <div class="marquee-track" aria-hidden="true">
-          <span>Frontend Engineering</span><i>+</i><span>Backend APIs</span><i>+</i><span>Computer Vision</span><i>+</i>
-          <span>Frontend Engineering</span><i>+</i><span>Backend APIs</span><i>+</i><span>Computer Vision</span><i>+</i>
+      <section class="skill-rail" aria-label="Technology highlights" data-i18n-aria="technologyHighlights">
+        <div class="skill-track" aria-hidden="true">
+          <span>Next.js</span><i></i><span>TypeScript</span><i></i><span>NestJS</span><i></i><span>FastAPI</span><i></i>
+          <span>OpenCV</span><i></i><span>MongoDB</span><i></i><span>Docker</span><i></i><span>Git</span><i></i>
+          <span>Next.js</span><i></i><span>TypeScript</span><i></i><span>NestJS</span><i></i><span>FastAPI</span><i></i>
+          <span>OpenCV</span><i></i><span>MongoDB</span><i></i><span>Docker</span><i></i><span>Git</span><i></i>
         </div>
       </section>
 
       <section class="work section-shell" id="work" aria-labelledby="work-title">
         <div class="section-heading reveal">
           <div>
-            <span class="section-index">01 / Selected work</span>
-            <h2 id="work-title">Building systems that solve real workflows.</h2>
+            <span class="section-index" data-i18n="workIndex">01 / SELECTED WORK</span>
+            <h2 id="work-title" data-i18n="workTitle">Real projects, explained through decisions and outcomes.</h2>
           </div>
-          <p>Three projects covering automation, content management, and team operations.</p>
+          <p data-i18n="workDescription">
+            Each project covers a different workflow, but all three share the same goal: make complex tasks feel simple.
+          </p>
         </div>
 
         <article class="featured-project reveal">
-          <div class="project-spotlight" aria-hidden="true">
-            <div class="scanner-corners"><span></span><span></span><span></span><span></span></div>
-            <div class="answer-sheet">
-              <div class="answer-sheet__head"><b>OMR</b><span>Processing pipeline</span></div>
-              <div class="answer-row"><b>01</b><i></i><i class="is-marked"></i><i></i><i></i></div>
-              <div class="answer-row"><b>02</b><i></i><i></i><i></i><i class="is-marked"></i></div>
-              <div class="answer-row"><b>03</b><i class="is-marked"></i><i></i><i></i><i></i></div>
-              <div class="answer-row"><b>04</b><i></i><i></i><i class="is-marked"></i><i></i></div>
-              <div class="processing-line"></div>
+          <div class="project-visual project-visual--omr" aria-label="Illustration of an OMR grading pipeline" data-i18n-aria="omrIllustration">
+            <div class="visual-topline"><span>INPUT / IMAGE</span><span>CV PIPELINE</span></div>
+            <div class="pipeline">
+              <div class="pipeline-step">
+                <span>01</span><strong data-i18n="pipelineCapture">Capture</strong><small>QR + Mobile</small>
+              </div>
+              <svg viewBox="0 0 48 16" aria-hidden="true"><path d="M1 8h42M38 3l5 5-5 5"></path></svg>
+              <div class="pipeline-step pipeline-step--active">
+                <span>02</span><strong data-i18n="pipelineDetect">Detect</strong><small>OpenCV</small>
+              </div>
+              <svg viewBox="0 0 48 16" aria-hidden="true"><path d="M1 8h42M38 3l5 5-5 5"></path></svg>
+              <div class="pipeline-step">
+                <span>03</span><strong data-i18n="pipelineReview">Review</strong><small>Web App</small>
+              </div>
             </div>
-            <div class="score-chip"><strong>10/10</strong><span>Project score</span></div>
+            <div class="sheet-preview" aria-hidden="true">
+              <div class="sheet-preview__header"><b>OMR / 2026</b><i></i></div>
+              <div class="bubble-row"><span>01</span><i></i><i class="marked"></i><i></i><i></i></div>
+              <div class="bubble-row"><span>02</span><i></i><i></i><i></i><i class="marked"></i></div>
+              <div class="bubble-row"><span>03</span><i class="marked"></i><i></i><i></i><i></i></div>
+              <div class="scan-line"></div>
+            </div>
+            <div class="score-card"><small data-i18n="projectScore">PROJECT SCORE</small><strong>10/10</strong><span data-i18n="verifiedResult">VERIFIED RESULT</span></div>
           </div>
 
           <div class="project-content">
-            <div class="project-number">Project / 01</div>
+            <div class="project-meta">
+              <span>PROJECT / 01</span>
+              <span data-i18n="projectRole">ROLE · FULL-STACK + COMPUTER VISION</span>
+            </div>
             <h3>Smart OMR Grading System</h3>
-            <p class="project-lead">
-              An end-to-end grading platform that turns captured answer sheets into verified scores — combining
-              classroom management, authentication, image correction, bubble detection, and result review.
+            <p class="project-lead" data-i18n="omrLead">
+              A grading platform that transforms captured answer sheets into reviewable results, connecting classroom
+              management with a robust image-processing pipeline.
             </p>
             <ul class="project-outcomes">
-              <li>Designed the complete grading workflow across multiple exam codes and answer-sheet templates.</li>
-              <li>Built a FastAPI and OpenCV pipeline for marker detection, perspective correction, and answer recognition.</li>
-              <li>Added Excel import/export and QR-based mobile capture to reduce manual grading work.</li>
+              <li data-i18n="omrOutcome1">Designed the complete workflow for multiple exam codes and sheet templates.</li>
+              <li data-i18n="omrOutcome2">Built marker detection, perspective correction, and bubble recognition with FastAPI and OpenCV.</li>
+              <li data-i18n="omrOutcome3">Added QR capture and Excel import/export to reduce repetitive grading work.</li>
             </ul>
-            <ul class="tag-list" aria-label="Technologies used">
+            <ul class="tag-list" aria-label="Technologies used" data-i18n-aria="technologiesUsed">
               <li>Next.js</li><li>NestJS</li><li>FastAPI</li><li>MongoDB</li><li>OpenCV</li><li>Docker</li>
             </ul>
             <a class="text-link" href="https://github.com/teamcho123-lgtm/smart-omr-grading-system" target="_blank" rel="noreferrer">
-              View repository <span aria-hidden="true">↗</span>
+              <span data-i18n="viewRepository">View repository</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
             </a>
           </div>
         </article>
 
         <div class="project-grid">
           <article class="project-card reveal">
-            <div class="project-card__top">
-              <span class="project-number">Project / 02</span>
-              <a href="https://github.com/teamcho123-lgtm/Blog-Frontend" target="_blank" rel="noreferrer" aria-label="View Personal Blog repository">↗</a>
+            <div class="project-card__header">
+              <div class="project-card__number">02</div>
+              <span data-i18n="webApplication">WEB APPLICATION</span>
+            </div>
+            <div class="project-card__visual project-card__visual--blog" aria-hidden="true">
+              <div class="browser-mockup">
+                <div class="browser-bar"><i></i><i></i><i></i></div>
+                <div class="blog-layout"><div></div><div></div><div></div><div></div></div>
+              </div>
             </div>
             <h3>Personal Blog</h3>
-            <p>
-              A publishing experience with authentication, post CRUD, public and private visibility, likes,
-              comments, search, and an admin dashboard.
+            <p data-i18n="blogDescription">
+              A publishing experience with authentication, post management, privacy controls, reactions, search, and an admin dashboard.
             </p>
-            <ul class="tag-list" aria-label="Technologies used"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>LocalStorage</li></ul>
+            <ul class="tag-list" aria-label="Technologies used" data-i18n-aria="technologiesUsed"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>LocalStorage</li></ul>
+            <a class="text-link" href="https://github.com/teamcho123-lgtm/Blog-Frontend" target="_blank" rel="noreferrer">
+              <span data-i18n="viewRepository">View repository</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+            </a>
           </article>
 
           <article class="project-card reveal">
-            <div class="project-card__top">
-              <span class="project-number">Project / 03</span>
-              <a href="https://github.com/teamcho123-lgtm/Project-Management-System" target="_blank" rel="noreferrer" aria-label="View Project Management System repository">↗</a>
+            <div class="project-card__header">
+              <div class="project-card__number">03</div>
+              <span data-i18n="teamWorkflow">TEAM WORKFLOW</span>
+            </div>
+            <div class="project-card__visual project-card__visual--tasks" aria-hidden="true">
+              <div class="task-board">
+                <div><span>TODO</span><i></i><i></i></div>
+                <div><span>DOING</span><i></i><i></i><i></i></div>
+                <div><span>REVIEW</span><i></i></div>
+              </div>
             </div>
             <h3>Project Management System</h3>
-            <p>
-              A collaborative task platform with four user roles, project and member management, comments,
-              activity history, and a Todo-to-Approval workflow.
+            <p data-i18n="pmsDescription">
+              A collaborative task platform with four roles, member management, comments, activity history, and a Todo-to-Approval flow.
             </p>
-            <ul class="tag-list" aria-label="Project capabilities"><li>CRUD</li><li>RBAC</li><li>Sessions</li><li>Workflow</li></ul>
+            <ul class="tag-list" aria-label="Project capabilities" data-i18n-aria="projectCapabilities"><li>CRUD</li><li>RBAC</li><li>Sessions</li><li>Workflow</li></ul>
+            <a class="text-link" href="https://github.com/teamcho123-lgtm/Project-Management-System" target="_blank" rel="noreferrer">
+              <span data-i18n="viewRepository">View repository</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+            </a>
           </article>
         </div>
       </section>
@@ -171,30 +267,47 @@
       <section class="skills section-shell" id="skills" aria-labelledby="skills-title">
         <div class="section-heading reveal">
           <div>
-            <span class="section-index">02 / Capabilities</span>
-            <h2 id="skills-title">Comfortable across the whole stack.</h2>
+            <span class="section-index" data-i18n="skillsIndex">02 / CAPABILITIES</span>
+            <h2 id="skills-title" data-i18n="skillsTitle">A practical toolkit for shipping the whole experience.</h2>
           </div>
-          <p>I care about the handoff between layers: clear interfaces, predictable APIs, and debuggable systems.</p>
+          <p data-i18n="skillsDescription">
+            I’m most useful where product, frontend, backend, and data meet — with enough depth to debug across boundaries.
+          </p>
         </div>
 
-        <div class="skills-grid">
-          <article class="skill-block reveal">
-            <span class="skill-block__index">A</span>
-            <h3>Frontend</h3>
-            <p>Responsive interfaces and type-safe product flows.</p>
-            <ul><li>Next.js & React</li><li>TypeScript & JavaScript</li><li>Tailwind CSS & Ant Design</li><li>HTML & CSS</li></ul>
+        <div class="capability-grid">
+          <article class="capability-card capability-card--wide reveal">
+            <div class="capability-card__head"><span>A / BUILD</span><span class="capability-icon" aria-hidden="true">&lt;/&gt;</span></div>
+            <h3 data-i18n="frontendTitle">Frontend Engineering</h3>
+            <p data-i18n="frontendDescription">Responsive, accessible interfaces with clear states and maintainable component structures.</p>
+            <div class="skill-cloud"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Ant Design</span></div>
           </article>
-          <article class="skill-block reveal">
-            <span class="skill-block__index">B</span>
-            <h3>Backend & Data</h3>
-            <p>Secure APIs, authentication, and structured data.</p>
-            <ul><li>NestJS & Node.js</li><li>FastAPI & Python</li><li>REST, JWT & Passport</li><li>MongoDB & MySQL</li></ul>
+
+          <article class="capability-card reveal">
+            <div class="capability-card__head"><span>B / CONNECT</span><span class="capability-icon" aria-hidden="true">API</span></div>
+            <h3 data-i18n="backendTitle">Backend & Data</h3>
+            <p data-i18n="backendDescription">Authentication, REST APIs, role-aware workflows, and structured persistence.</p>
+            <div class="skill-cloud"><span>NestJS</span><span>FastAPI</span><span>JWT</span><span>MongoDB</span><span>MySQL</span></div>
           </article>
-          <article class="skill-block reveal">
-            <span class="skill-block__index">C</span>
-            <h3>Vision & Practice</h3>
-            <p>Applied image processing backed by solid fundamentals.</p>
-            <ul><li>OpenCV, NumPy & Pillow</li><li>OMR processing</li><li>OOP, MVC & algorithms</li><li>Git, debugging & testing</li></ul>
+
+          <article class="capability-card capability-card--vision reveal">
+            <div class="capability-card__head"><span>C / SEE</span><span class="capability-icon" aria-hidden="true">CV</span></div>
+            <h3 data-i18n="visionTitle">Computer Vision</h3>
+            <p data-i18n="visionDescription">Image correction and recognition pipelines designed around real input quality.</p>
+            <div class="vision-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="skill-cloud"><span>OpenCV</span><span>NumPy</span><span>Pillow</span><span>OMR</span></div>
+          </article>
+
+          <article class="capability-card capability-card--wide reveal">
+            <div class="capability-card__head"><span>D / DELIVER</span><span class="capability-icon" aria-hidden="true">QA</span></div>
+            <h3 data-i18n="practiceTitle">Engineering Practice</h3>
+            <p data-i18n="practiceDescription">Clean handoffs, logical debugging, collaborative testing, and a habit of learning through delivery.</p>
+            <div class="practice-list">
+              <span data-i18n="practice1">Git & team collaboration</span>
+              <span data-i18n="practice2">Testing & defect discovery</span>
+              <span data-i18n="practice3">OOP, MVC & algorithms</span>
+              <span data-i18n="practice4">Docker & deployment basics</span>
+            </div>
           </article>
         </div>
       </section>
@@ -202,31 +315,31 @@
       <section class="journey section-shell" id="journey" aria-labelledby="journey-title">
         <div class="section-heading reveal">
           <div>
-            <span class="section-index">03 / Journey</span>
-            <h2 id="journey-title">Learning through real delivery.</h2>
+            <span class="section-index" data-i18n="journeyIndex">03 / JOURNEY</span>
+            <h2 id="journey-title" data-i18n="journeyTitle">Learning fastest when the work is real.</h2>
           </div>
         </div>
 
         <div class="timeline">
           <article class="timeline-item reveal">
-            <div class="timeline-date">Jan — Mar 2026</div>
-            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-date">JAN — MAR 2026</div>
+            <div class="timeline-marker" aria-hidden="true"><span></span></div>
             <div class="timeline-content">
-              <span>Work experience</span>
-              <h3>Software Development Intern · OLM</h3>
-              <p>
-                Contributed to automated multiple-choice grading software. Collaborated on feature testing,
-                defect discovery, debugging, and processing examination data through logical algorithms.
+              <span data-i18n="workExperience">WORK EXPERIENCE</span>
+              <h3 data-i18n="olmTitle">Software Development Intern · OLM</h3>
+              <p data-i18n="olmDescription">
+                Contributed to automated multiple-choice grading software through feature testing, defect discovery,
+                debugging, and examination-data processing with logical algorithms.
               </p>
             </div>
           </article>
           <article class="timeline-item reveal">
             <div class="timeline-date">2022 — 2026</div>
-            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-marker" aria-hidden="true"><span></span></div>
             <div class="timeline-content">
-              <span>Education</span>
-              <h3>Bachelor of Information Technology</h3>
-              <p>Hanoi National University of Education · Final-year student</p>
+              <span data-i18n="education">EDUCATION</span>
+              <h3 data-i18n="degree">Bachelor of Information Technology</h3>
+              <p data-i18n="university">Hanoi National University of Education · Final-year student</p>
             </div>
           </article>
         </div>
@@ -234,21 +347,40 @@
 
       <section class="contact section-shell" id="contact" aria-labelledby="contact-title">
         <div class="contact-panel reveal">
-          <span class="section-index">04 / Let’s connect</span>
-          <h2 id="contact-title">Have a product idea or an internship opportunity?</h2>
-          <p>I’m ready to learn fast, contribute across the stack, and turn requirements into working software.</p>
+          <div class="contact-panel__signal" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="section-index" data-i18n="contactIndex">04 / LET’S CONNECT</span>
+          <h2 id="contact-title" data-i18n="contactTitle">Let’s build something useful together.</h2>
+          <p data-i18n="contactDescription">
+            I’m looking for a team where I can contribute across the stack, learn from strong engineers, and turn requirements into dependable software.
+          </p>
           <div class="contact-actions">
-            <a class="button button--primary" href="mailto:hongphuoc123465@gmail.com">hongphuoc123465@gmail.com <span aria-hidden="true">↗</span></a>
-            <a class="button button--ghost" href="tel:+84976660690">+84 976 660 690</a>
+            <a class="button button--primary" href="mailto:hongphuoc123465@gmail.com">
+              <span data-i18n="emailMe">Email me</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6"></path></svg>
+            </a>
+            <a class="button button--secondary" href="tel:+84976660690">
+              <span>+84 976 660 690</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 3H5.3C4.6 3 4 3.6 4 4.3 4 13 11 20 19.7 20c.7 0 1.3-.6 1.3-1.3v-3.3l-4-1.3-1.1 2.2a15 15 0 0 1-8.2-8.2L9.9 7l-1.3-4Z"></path></svg>
+            </a>
           </div>
-          <a class="github-link" href="https://github.com/teamcho123-lgtm" target="_blank" rel="noreferrer">GitHub · teamcho123-lgtm <span aria-hidden="true">↗</span></a>
+          <div class="contact-links">
+            <a href="mailto:hongphuoc123465@gmail.com">hongphuoc123465@gmail.com</a>
+            <a href="https://github.com/teamcho123-lgtm" target="_blank" rel="noreferrer">
+              GitHub · teamcho123-lgtm
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer section-shell">
-      <p>Nguyen Huynh Hong Phuoc · Full Stack Developer</p>
-      <p>Designed around clarity, systems, and useful outcomes.</p>
+      <p>© <span data-current-year>2026</span> Nguyen Huynh Hong Phuoc</p>
+      <p data-i18n="footerNote">Designed with clarity. Built with care.</p>
+      <a href="#top" data-i18n-aria="backTop">
+        <span data-i18n="backToTop">Back to top</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 14 5-5 5 5"></path></svg>
+      </a>
     </footer>
   </body>
 </html>
