@@ -25,7 +25,6 @@
   --radius-xl: 40px;
   --container: 1180px;
   --font-sans: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-serif: Georgia, Cambria, "Times New Roman", serif;
   --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
@@ -531,10 +530,9 @@ html[data-theme="light"] .theme-icon--moon {
   margin-top: 16px;
   color: var(--text-strong);
   font-size: clamp(3rem, 6.3vw, 5.8rem);
-  font-family: var(--font-serif);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
+  font-weight: 760;
+  letter-spacing: -0.065em;
+  line-height: 0.96;
   text-wrap: balance;
 }
 
@@ -1004,10 +1002,9 @@ html[data-theme="light"] .theme-icon--moon {
   max-width: 760px;
   color: var(--text-strong);
   font-size: clamp(2.25rem, 4.5vw, 4.35rem);
-  font-family: var(--font-serif);
-  font-weight: 700;
-  letter-spacing: -0.038em;
-  line-height: 1.06;
+  font-weight: 750;
+  letter-spacing: -0.055em;
+  line-height: 1.03;
   text-wrap: balance;
 }
 
@@ -1260,9 +1257,8 @@ html[data-theme="light"] .theme-icon--moon {
 .capability-card h3,
 .timeline-content h3 {
   color: var(--text-strong);
-  font-family: var(--font-serif);
-  font-weight: 700;
-  letter-spacing: -0.025em;
+  font-weight: 740;
+  letter-spacing: -0.035em;
   line-height: 1.12;
 }
 
