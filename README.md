@@ -1,6 +1,6 @@
 # NHHP Portfolio
 
-Portfolio cá nhân của **Nguyễn Huỳnh Hồng Phước**, tập trung vào năng lực Full-stack, Computer Vision và tư duy xây dựng sản phẩm hoàn chỉnh.
+Portfolio cá nhân của **Nguyễn Huỳnh Hồng Phước**, định vị theo hướng Công nghệ Giáo dục với năng lực Full-stack, Computer Vision và tư duy xây dựng sản phẩm hoàn chỉnh.
 
 ## Điểm nổi bật
 
@@ -9,6 +9,7 @@ Portfolio cá nhân của **Nguyễn Huỳnh Hồng Phước**, tập trung vào
 - Dark / light theme theo tùy chọn hệ thống và người dùng.
 - Case study trực quan cho Smart OMR Grading System.
 - Bento grid kỹ năng, timeline kinh nghiệm và liên kết dự án thật.
+- Motion system gồm stagger reveal, scroll progress, counter, parallax và card tilt theo con trỏ.
 - Hỗ trợ bàn phím, focus state, skip link và `prefers-reduced-motion`.
 - Không framework, không dependency runtime: chỉ HTML, CSS và JavaScript thuần.
 
@@ -30,6 +31,4 @@ Phục vụ thư mục `dist` bằng một HTTP server bất kỳ, sau đó mở
 
 ## Hướng thiết kế
 
-Phiên bản này tham khảo nhịp bố cục, badge công nghệ, marquee và bento skills từ
-[mtikcode-simple-portfolio](https://github.com/sissyMai/mtikcode-simple-portfolio). Toàn bộ giao diện, nội dung,
-minh họa CSS, hệ thống theme và tương tác trong repository này được triển khai lại cho hồ sơ và dự án của Nguyễn Huỳnh Hồng Phước.
+Giao diện sử dụng ngôn ngữ “học thuật hiện đại”: xanh học viện, vàng đánh dấu, nền kẻ dòng gợi liên tưởng đến sổ học tập, tiêu đề serif và cấu trúc theo chương/module. Các case study, năng lực và hành trình được trình bày như một hồ sơ học tập số, đồng thời giữ đầy đủ dark/light theme và hệ thống chuyển động.

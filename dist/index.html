@@ -5,30 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Portfolio of Nguyen Huynh Hong Phuoc — a Full Stack Developer building accessible interfaces, secure APIs, and practical computer vision systems."
+      content="Portfolio of Nguyen Huynh Hong Phuoc — an education technology developer building accessible learning interfaces, dependable systems, and practical computer vision solutions."
     />
-    <meta name="theme-color" content="#07111f" />
+    <meta name="theme-color" content="#0a1830" />
     <meta name="color-scheme" content="dark light" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Nguyen Huynh Hong Phuoc — Full Stack Developer" />
+    <meta property="og:title" content="Nguyen Huynh Hong Phuoc — Education Technology Developer" />
     <meta
       property="og:description"
-      content="Full-stack engineering, computer vision, and product-minded problem solving."
+      content="Education technology, accessible learning systems, and practical computer vision."
     />
-    <title>Nguyen Huynh Hong Phuoc — Full Stack Developer</title>
+    <title>Nguyen Huynh Hong Phuoc — Education Technology Developer</title>
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="Back to top" data-i18n-aria="backTop">
         <span class="brand-mark" aria-hidden="true">HP</span>
         <span class="brand-copy">
           <strong>Hong Phuoc</strong>
-          <small>Full Stack Developer</small>
+          <small data-i18n="brandRole">Education Technology Developer</small>
         </span>
       </a>
 
@@ -68,17 +69,17 @@
         <div class="hero-copy reveal">
           <div class="availability-pill">
             <span class="status-dot" aria-hidden="true"></span>
-            <span data-i18n="availability">Available for a Full-stack Internship</span>
+            <span data-i18n="availability">Open to EdTech & Full-stack opportunities</span>
           </div>
 
-          <p class="hero-kicker" data-i18n="heroKicker">FULL-STACK · COMPUTER VISION · PRODUCT THINKING</p>
+          <p class="hero-kicker" data-i18n="heroKicker">EDUCATION TECHNOLOGY · FULL-STACK · COMPUTER VISION</p>
           <h1 id="hero-title">
-            <span data-i18n="heroTitleStart">I turn complex workflows into</span>
-            <span class="text-gradient" data-i18n="heroTitleAccent">clear, working products.</span>
+            <span data-i18n="heroTitleStart">I build digital tools for</span>
+            <span class="text-gradient" data-i18n="heroTitleAccent">clearer learning and assessment.</span>
           </h1>
           <p class="hero-intro" data-i18n="heroIntro">
-            I’m Nguyen Huynh Hong Phuoc, an Information Technology student in Hanoi. I connect thoughtful
-            interfaces, secure APIs, reliable data, and practical image processing into complete experiences.
+            I’m Nguyen Huynh Hong Phuoc, an Information Technology student in Hanoi. I turn classroom workflows
+            into accessible interfaces, dependable systems, and practical computer vision solutions.
           </p>
 
           <div class="hero-actions">
@@ -94,16 +95,16 @@
 
           <dl class="hero-stats" aria-label="Portfolio highlights" data-i18n-aria="highlights">
             <div>
-              <dt>10/10</dt>
+              <dt data-counter data-count-end="10" data-count-suffix="/10">10/10</dt>
               <dd data-i18n="statProject">Specialized project</dd>
             </div>
             <div>
-              <dt>03</dt>
+              <dt data-counter data-count-end="3" data-count-pad="2">03</dt>
               <dd data-i18n="statProducts">End-to-end products</dd>
             </div>
             <div>
               <dt>2022—26</dt>
-              <dd data-i18n="statEducation">IT education</dd>
+              <dd data-i18n="statEducation">Information Technology studies</dd>
             </div>
           </dl>
         </div>
@@ -111,13 +112,13 @@
         <aside class="hero-visual reveal" aria-label="Developer profile" data-i18n-aria="developerProfile">
           <div class="profile-card">
             <div class="profile-card__topline">
-              <span>PROFILE / 01</span>
+              <span data-i18n="profileCardLabel">LEARNING PROFILE / HNUE</span>
               <span class="profile-card__signal"><i aria-hidden="true"></i> HANOI, VN</span>
             </div>
             <div class="portrait-wrap">
               <div class="portrait-grid" aria-hidden="true"></div>
               <img src="assets/portrait.png" alt="Portrait of Nguyen Huynh Hong Phuoc" width="195" height="227" />
-              <div class="portrait-tag">FULL STACK</div>
+              <div class="portrait-tag" data-i18n="portraitTag">STUDENT · DEVELOPER</div>
             </div>
             <div class="profile-card__identity">
               <div>
@@ -140,34 +141,33 @@
             <div class="code-line"><span>02</span><code>service</code><b> NestJS + FastAPI</b></div>
             <div class="code-line"><span>03</span><code>vision</code><b> OpenCV + NumPy</b></div>
             <div class="code-line"><span>04</span><code>data</code><b> MongoDB + MySQL</b></div>
-            <div class="system-card__footer"><span>TYPE-SAFE</span><span>API-FIRST</span><span>USER-FOCUSED</span></div>
+            <div class="system-card__footer"><span>ACCESSIBLE</span><span>RELIABLE</span><span>LEARNING-FIRST</span></div>
           </div>
         </aside>
       </section>
 
       <section class="skill-rail" aria-label="Technology highlights" data-i18n-aria="technologyHighlights">
         <div class="skill-track" aria-hidden="true">
-          <span>Next.js</span><i></i><span>TypeScript</span><i></i><span>NestJS</span><i></i><span>FastAPI</span><i></i>
-          <span>OpenCV</span><i></i><span>MongoDB</span><i></i><span>Docker</span><i></i><span>Git</span><i></i>
-          <span>Next.js</span><i></i><span>TypeScript</span><i></i><span>NestJS</span><i></i><span>FastAPI</span><i></i>
-          <span>OpenCV</span><i></i><span>MongoDB</span><i></i><span>Docker</span><i></i><span>Git</span><i></i>
+          <span>Learning Experience</span><i></i><span>Assessment Systems</span><i></i><span>Accessible Interfaces</span><i></i><span>Computer Vision</span><i></i>
+          <span>Reliable Data</span><i></i><span>Clear Feedback</span><i></i><span>Learning Experience</span><i></i><span>Assessment Systems</span><i></i>
+          <span>Accessible Interfaces</span><i></i><span>Computer Vision</span><i></i><span>Reliable Data</span><i></i><span>Clear Feedback</span><i></i>
         </div>
       </section>
 
       <section class="work section-shell" id="work" aria-labelledby="work-title">
         <div class="section-heading reveal">
           <div>
-            <span class="section-index" data-i18n="workIndex">01 / SELECTED WORK</span>
-            <h2 id="work-title" data-i18n="workTitle">Real projects, explained through decisions and outcomes.</h2>
+            <span class="section-index" data-i18n="workIndex">CHAPTER 01 / EDUCATION PROJECTS</span>
+            <h2 id="work-title" data-i18n="workTitle">Digital learning problems, solved through thoughtful systems.</h2>
           </div>
           <p data-i18n="workDescription">
-            Each project covers a different workflow, but all three share the same goal: make complex tasks feel simple.
+            From assessment to knowledge sharing, each project turns a complex workflow into a clearer experience.
           </p>
         </div>
 
         <article class="featured-project reveal">
           <div class="project-visual project-visual--omr" aria-label="Illustration of an OMR grading pipeline" data-i18n-aria="omrIllustration">
-            <div class="visual-topline"><span>INPUT / IMAGE</span><span>CV PIPELINE</span></div>
+            <div class="visual-topline"><span>ANSWER SHEET / INPUT</span><span>ASSESSMENT FLOW</span></div>
             <div class="pipeline">
               <div class="pipeline-step">
                 <span>01</span><strong data-i18n="pipelineCapture">Capture</strong><small>QR + Mobile</small>
@@ -193,7 +193,7 @@
 
           <div class="project-content">
             <div class="project-meta">
-              <span>PROJECT / 01</span>
+              <span>CASE STUDY / 01</span>
               <span data-i18n="projectRole">ROLE · FULL-STACK + COMPUTER VISION</span>
             </div>
             <h3>Smart OMR Grading System</h3>
@@ -220,7 +220,7 @@
           <article class="project-card reveal">
             <div class="project-card__header">
               <div class="project-card__number">02</div>
-              <span data-i18n="webApplication">WEB APPLICATION</span>
+              <span data-i18n="webApplication">KNOWLEDGE PUBLISHING</span>
             </div>
             <div class="project-card__visual project-card__visual--blog" aria-hidden="true">
               <div class="browser-mockup">
@@ -242,7 +242,7 @@
           <article class="project-card reveal">
             <div class="project-card__header">
               <div class="project-card__number">03</div>
-              <span data-i18n="teamWorkflow">TEAM WORKFLOW</span>
+              <span data-i18n="teamWorkflow">COLLABORATIVE WORKFLOW</span>
             </div>
             <div class="project-card__visual project-card__visual--tasks" aria-hidden="true">
               <div class="task-board">
@@ -267,31 +267,31 @@
       <section class="skills section-shell" id="skills" aria-labelledby="skills-title">
         <div class="section-heading reveal">
           <div>
-            <span class="section-index" data-i18n="skillsIndex">02 / CAPABILITIES</span>
-            <h2 id="skills-title" data-i18n="skillsTitle">A practical toolkit for shipping the whole experience.</h2>
+            <span class="section-index" data-i18n="skillsIndex">CHAPTER 02 / TECHNICAL TOOLKIT</span>
+            <h2 id="skills-title" data-i18n="skillsTitle">A technical toolkit shaped by real education workflows.</h2>
           </div>
           <p data-i18n="skillsDescription">
-            I’m most useful where product, frontend, backend, and data meet — with enough depth to debug across boundaries.
+            I connect interface, backend, data, and computer vision to support dependable learning experiences.
           </p>
         </div>
 
         <div class="capability-grid">
           <article class="capability-card capability-card--wide reveal">
-            <div class="capability-card__head"><span>A / BUILD</span><span class="capability-icon" aria-hidden="true">&lt;/&gt;</span></div>
+            <div class="capability-card__head"><span>MODULE A / BUILD</span><span class="capability-icon" aria-hidden="true">&lt;/&gt;</span></div>
             <h3 data-i18n="frontendTitle">Frontend Engineering</h3>
             <p data-i18n="frontendDescription">Responsive, accessible interfaces with clear states and maintainable component structures.</p>
             <div class="skill-cloud"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Ant Design</span></div>
           </article>
 
           <article class="capability-card reveal">
-            <div class="capability-card__head"><span>B / CONNECT</span><span class="capability-icon" aria-hidden="true">API</span></div>
+            <div class="capability-card__head"><span>MODULE B / CONNECT</span><span class="capability-icon" aria-hidden="true">API</span></div>
             <h3 data-i18n="backendTitle">Backend & Data</h3>
             <p data-i18n="backendDescription">Authentication, REST APIs, role-aware workflows, and structured persistence.</p>
             <div class="skill-cloud"><span>NestJS</span><span>FastAPI</span><span>JWT</span><span>MongoDB</span><span>MySQL</span></div>
           </article>
 
           <article class="capability-card capability-card--vision reveal">
-            <div class="capability-card__head"><span>C / SEE</span><span class="capability-icon" aria-hidden="true">CV</span></div>
+            <div class="capability-card__head"><span>MODULE C / SEE</span><span class="capability-icon" aria-hidden="true">CV</span></div>
             <h3 data-i18n="visionTitle">Computer Vision</h3>
             <p data-i18n="visionDescription">Image correction and recognition pipelines designed around real input quality.</p>
             <div class="vision-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
@@ -299,7 +299,7 @@
           </article>
 
           <article class="capability-card capability-card--wide reveal">
-            <div class="capability-card__head"><span>D / DELIVER</span><span class="capability-icon" aria-hidden="true">QA</span></div>
+            <div class="capability-card__head"><span>MODULE D / DELIVER</span><span class="capability-icon" aria-hidden="true">QA</span></div>
             <h3 data-i18n="practiceTitle">Engineering Practice</h3>
             <p data-i18n="practiceDescription">Clean handoffs, logical debugging, collaborative testing, and a habit of learning through delivery.</p>
             <div class="practice-list">
@@ -315,8 +315,8 @@
       <section class="journey section-shell" id="journey" aria-labelledby="journey-title">
         <div class="section-heading reveal">
           <div>
-            <span class="section-index" data-i18n="journeyIndex">03 / JOURNEY</span>
-            <h2 id="journey-title" data-i18n="journeyTitle">Learning fastest when the work is real.</h2>
+            <span class="section-index" data-i18n="journeyIndex">CHAPTER 03 / LEARNING JOURNEY</span>
+            <h2 id="journey-title" data-i18n="journeyTitle">Learning by building, testing, and improving real systems.</h2>
           </div>
         </div>
 
@@ -348,10 +348,10 @@
       <section class="contact section-shell" id="contact" aria-labelledby="contact-title">
         <div class="contact-panel reveal">
           <div class="contact-panel__signal" aria-hidden="true"><span></span><span></span><span></span></div>
-          <span class="section-index" data-i18n="contactIndex">04 / LET’S CONNECT</span>
-          <h2 id="contact-title" data-i18n="contactTitle">Let’s build something useful together.</h2>
+          <span class="section-index" data-i18n="contactIndex">CHAPTER 04 / LET’S CONNECT</span>
+          <h2 id="contact-title" data-i18n="contactTitle">Let’s build better learning experiences.</h2>
           <p data-i18n="contactDescription">
-            I’m looking for a team where I can contribute across the stack, learn from strong engineers, and turn requirements into dependable software.
+            I’m looking for a team where technology serves a clear learning goal—and where I can contribute across the stack while growing with strong engineers.
           </p>
           <div class="contact-actions">
             <a class="button button--primary" href="mailto:hongphuoc123465@gmail.com">
@@ -376,7 +376,7 @@
 
     <footer class="site-footer section-shell">
       <p>© <span data-current-year>2026</span> Nguyen Huynh Hong Phuoc</p>
-      <p data-i18n="footerNote">Designed with clarity. Built with care.</p>
+      <p data-i18n="footerNote">Built for clarity, learning, and useful outcomes.</p>
       <a href="#top" data-i18n-aria="backTop">
         <span data-i18n="backToTop">Back to top</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 14 5-5 5 5"></path></svg>

@@ -8,44 +8,50 @@ const nav = document.querySelector('.primary-nav');
 const header = document.querySelector('[data-header]');
 const themeColor = document.querySelector('meta[name="theme-color"]');
 const metaDescription = document.querySelector('meta[name="description"]');
+const scrollProgress = document.querySelector('.scroll-progress span');
+const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const finePointerQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
 
 const translations = {
   en: {
-    pageTitle: 'Nguyen Huynh Hong Phuoc — Full Stack Developer',
-    metaDescription: 'Portfolio of Nguyen Huynh Hong Phuoc — a Full Stack Developer building accessible interfaces, secure APIs, and practical computer vision systems.',
+    pageTitle: 'Nguyen Huynh Hong Phuoc — Education Technology Developer',
+    metaDescription: 'Portfolio of Nguyen Huynh Hong Phuoc — an education technology developer building accessible learning interfaces, dependable systems, and practical computer vision solutions.',
     skip: 'Skip to content',
     backTop: 'Back to top',
     primaryNav: 'Primary navigation',
-    navWork: 'Work',
-    navSkills: 'Toolkit',
+    navWork: 'Projects',
+    navSkills: 'Expertise',
     navJourney: 'Journey',
     navContact: 'Contact',
     toggleNav: 'Toggle navigation',
     switchLanguage: 'Switch to Vietnamese',
     switchLight: 'Switch to light theme',
     switchDark: 'Switch to dark theme',
-    availability: 'Available for a Full-stack Internship',
-    heroKicker: 'FULL-STACK · COMPUTER VISION · PRODUCT THINKING',
-    heroTitleStart: 'I turn complex workflows into',
-    heroTitleAccent: 'clear, working products.',
-    heroIntro: 'I’m Nguyen Huynh Hong Phuoc, an Information Technology student in Hanoi. I connect thoughtful interfaces, secure APIs, reliable data, and practical image processing into complete experiences.',
+    brandRole: 'Education Technology Developer',
+    availability: 'Open to EdTech & Full-stack opportunities',
+    heroKicker: 'EDUCATION TECHNOLOGY · FULL-STACK · COMPUTER VISION',
+    heroTitleStart: 'I build digital tools for',
+    heroTitleAccent: 'clearer learning and assessment.',
+    heroIntro: 'I’m Nguyen Huynh Hong Phuoc, an Information Technology student in Hanoi. I turn classroom workflows into accessible interfaces, dependable systems, and practical computer vision solutions.',
     exploreWork: 'Explore selected work',
     startConversation: 'Start a conversation',
     highlights: 'Portfolio highlights',
-    statProject: 'Specialized project',
+    statProject: 'Education project score',
     statProducts: 'End-to-end products',
-    statEducation: 'IT education',
-    developerProfile: 'Developer profile',
+    statEducation: 'Information Technology studies',
+    developerProfile: 'Student developer profile',
+    profileCardLabel: 'LEARNING PROFILE / HNUE',
+    portraitTag: 'STUDENT · DEVELOPER',
     profileNameLabel: 'Name',
     profileFocusLabel: 'Focus',
-    profileFocus: 'Web systems + Computer Vision',
-    stackSystem: 'Current technology system',
-    stackTitle: 'CURRENT TOOLKIT',
+    profileFocus: 'Education systems + Computer Vision',
+    stackSystem: 'Education technology toolkit',
+    stackTitle: 'LEARNING SYSTEM TOOLKIT',
     stackStatus: 'READY',
-    technologyHighlights: 'Technology highlights',
-    workIndex: '01 / SELECTED WORK',
-    workTitle: 'Real projects, explained through decisions and outcomes.',
-    workDescription: 'Each project covers a different workflow, but all three share the same goal: make complex tasks feel simple.',
+    technologyHighlights: 'Education technology focus',
+    workIndex: 'CHAPTER 01 / EDUCATION PROJECTS',
+    workTitle: 'Digital learning problems, solved through thoughtful systems.',
+    workDescription: 'From assessment to knowledge sharing, each project turns a complex workflow into a clearer experience.',
     omrIllustration: 'Illustration of an OMR grading pipeline',
     pipelineCapture: 'Capture',
     pipelineDetect: 'Detect',
@@ -59,14 +65,14 @@ const translations = {
     omrOutcome3: 'Added QR capture and Excel import/export to reduce repetitive grading work.',
     technologiesUsed: 'Technologies used',
     viewRepository: 'View repository',
-    webApplication: 'WEB APPLICATION',
-    blogDescription: 'A publishing experience with authentication, post management, privacy controls, reactions, search, and an admin dashboard.',
-    teamWorkflow: 'TEAM WORKFLOW',
+    webApplication: 'KNOWLEDGE PUBLISHING',
+    blogDescription: 'A structured publishing space for sharing knowledge, with authentication, post management, privacy controls, reactions, search, and an admin dashboard.',
+    teamWorkflow: 'COLLABORATIVE WORKFLOW',
     pmsDescription: 'A collaborative task platform with four roles, member management, comments, activity history, and a Todo-to-Approval flow.',
     projectCapabilities: 'Project capabilities',
-    skillsIndex: '02 / CAPABILITIES',
-    skillsTitle: 'A practical toolkit for shipping the whole experience.',
-    skillsDescription: 'I’m most useful where product, frontend, backend, and data meet — with enough depth to debug across boundaries.',
+    skillsIndex: 'CHAPTER 02 / TECHNICAL TOOLKIT',
+    skillsTitle: 'A technical toolkit shaped by real education workflows.',
+    skillsDescription: 'I connect interface, backend, data, and computer vision to support dependable learning experiences.',
     frontendTitle: 'Frontend Engineering',
     frontendDescription: 'Responsive, accessible interfaces with clear states and maintainable component structures.',
     backendTitle: 'Backend & Data',
@@ -79,57 +85,60 @@ const translations = {
     practice2: 'Testing & defect discovery',
     practice3: 'OOP, MVC & algorithms',
     practice4: 'Docker & deployment basics',
-    journeyIndex: '03 / JOURNEY',
-    journeyTitle: 'Learning fastest when the work is real.',
+    journeyIndex: 'CHAPTER 03 / LEARNING JOURNEY',
+    journeyTitle: 'Learning by building, testing, and improving real systems.',
     workExperience: 'WORK EXPERIENCE',
     olmTitle: 'Software Development Intern · OLM',
     olmDescription: 'Contributed to automated multiple-choice grading software through feature testing, defect discovery, debugging, and examination-data processing with logical algorithms.',
     education: 'EDUCATION',
     degree: 'Bachelor of Information Technology',
     university: 'Hanoi National University of Education · Final-year student',
-    contactIndex: '04 / LET’S CONNECT',
-    contactTitle: 'Let’s build something useful together.',
-    contactDescription: 'I’m looking for a team where I can contribute across the stack, learn from strong engineers, and turn requirements into dependable software.',
+    contactIndex: 'CHAPTER 04 / LET’S CONNECT',
+    contactTitle: 'Let’s build better learning experiences.',
+    contactDescription: 'I’m looking for a team where technology serves a clear learning goal—and where I can contribute across the stack while growing with strong engineers.',
     emailMe: 'Email me',
-    footerNote: 'Designed with clarity. Built with care.',
+    footerNote: 'Built for clarity, learning, and useful outcomes.',
     backToTop: 'Back to top',
   },
   vi: {
-    pageTitle: 'Nguyễn Huỳnh Hồng Phước — Lập trình viên Full Stack',
-    metaDescription: 'Portfolio của Nguyễn Huỳnh Hồng Phước — lập trình viên Full Stack tập trung vào giao diện dễ dùng, API an toàn và hệ thống thị giác máy tính thực tiễn.',
+    pageTitle: 'Nguyễn Huỳnh Hồng Phước — Lập trình viên Công nghệ Giáo dục',
+    metaDescription: 'Portfolio của Nguyễn Huỳnh Hồng Phước — lập trình viên Công nghệ Giáo dục xây dựng giao diện học tập dễ tiếp cận, hệ thống đáng tin cậy và giải pháp thị giác máy tính thực tiễn.',
     skip: 'Đi đến nội dung chính',
     backTop: 'Về đầu trang',
     primaryNav: 'Điều hướng chính',
     navWork: 'Dự án',
-    navSkills: 'Kỹ năng',
+    navSkills: 'Năng lực',
     navJourney: 'Hành trình',
     navContact: 'Liên hệ',
     toggleNav: 'Mở hoặc đóng điều hướng',
     switchLanguage: 'Chuyển sang tiếng Anh',
     switchLight: 'Chuyển sang giao diện sáng',
     switchDark: 'Chuyển sang giao diện tối',
-    availability: 'Sẵn sàng cho vị trí Thực tập sinh Full-stack',
-    heroKicker: 'FULL-STACK · THỊ GIÁC MÁY TÍNH · TƯ DUY SẢN PHẨM',
-    heroTitleStart: 'Tôi biến quy trình phức tạp thành',
-    heroTitleAccent: 'sản phẩm rõ ràng, vận hành tốt.',
-    heroIntro: 'Tôi là Nguyễn Huỳnh Hồng Phước, sinh viên Công nghệ Thông tin tại Hà Nội. Tôi kết nối giao diện chỉn chu, API an toàn, dữ liệu đáng tin cậy và xử lý ảnh thực tiễn thành trải nghiệm hoàn chỉnh.',
+    brandRole: 'Lập trình viên Công nghệ Giáo dục',
+    availability: 'Sẵn sàng cho cơ hội EdTech & Full-stack',
+    heroKicker: 'CÔNG NGHỆ GIÁO DỤC · FULL-STACK · THỊ GIÁC MÁY TÍNH',
+    heroTitleStart: 'Tôi xây dựng công cụ số cho',
+    heroTitleAccent: 'việc học và đánh giá rõ ràng hơn.',
+    heroIntro: 'Tôi là Nguyễn Huỳnh Hồng Phước, sinh viên Công nghệ Thông tin tại Hà Nội. Tôi biến quy trình lớp học thành giao diện dễ tiếp cận, hệ thống đáng tin cậy và giải pháp thị giác máy tính thực tiễn.',
     exploreWork: 'Khám phá dự án nổi bật',
     startConversation: 'Bắt đầu trò chuyện',
     highlights: 'Điểm nổi bật trong portfolio',
-    statProject: 'Đồ án chuyên ngành',
+    statProject: 'Điểm đồ án giáo dục',
     statProducts: 'Sản phẩm hoàn chỉnh',
-    statEducation: 'Đào tạo CNTT',
-    developerProfile: 'Hồ sơ lập trình viên',
+    statEducation: 'Quá trình học CNTT',
+    developerProfile: 'Hồ sơ sinh viên phát triển phần mềm',
+    profileCardLabel: 'HỒ SƠ HỌC TẬP / HNUE',
+    portraitTag: 'SINH VIÊN · LẬP TRÌNH VIÊN',
     profileNameLabel: 'Họ tên',
     profileFocusLabel: 'Trọng tâm',
-    profileFocus: 'Hệ thống web + Thị giác máy tính',
-    stackSystem: 'Hệ thống công nghệ hiện tại',
-    stackTitle: 'BỘ CÔNG CỤ HIỆN TẠI',
+    profileFocus: 'Hệ thống giáo dục + Thị giác máy tính',
+    stackSystem: 'Bộ công cụ công nghệ giáo dục',
+    stackTitle: 'BỘ CÔNG CỤ CHO HỆ THỐNG HỌC TẬP',
     stackStatus: 'SẴN SÀNG',
-    technologyHighlights: 'Công nghệ nổi bật',
-    workIndex: '01 / DỰ ÁN NỔI BẬT',
-    workTitle: 'Dự án thực tế, được kể qua quyết định và kết quả.',
-    workDescription: 'Mỗi dự án giải quyết một quy trình khác nhau, nhưng cùng hướng đến một mục tiêu: làm cho tác vụ phức tạp trở nên đơn giản.',
+    technologyHighlights: 'Trọng tâm công nghệ giáo dục',
+    workIndex: 'CHƯƠNG 01 / DỰ ÁN GIÁO DỤC',
+    workTitle: 'Giải quyết bài toán học tập số bằng những hệ thống chỉn chu.',
+    workDescription: 'Từ đánh giá đến chia sẻ kiến thức, mỗi dự án biến một quy trình phức tạp thành trải nghiệm rõ ràng hơn.',
     omrIllustration: 'Minh họa quy trình chấm thi trắc nghiệm OMR',
     pipelineCapture: 'Thu nhận',
     pipelineDetect: 'Nhận diện',
@@ -143,14 +152,14 @@ const translations = {
     omrOutcome3: 'Tích hợp chụp ảnh qua QR và nhập/xuất Excel để giảm thao tác chấm lặp lại.',
     technologiesUsed: 'Công nghệ sử dụng',
     viewRepository: 'Xem mã nguồn',
-    webApplication: 'ỨNG DỤNG WEB',
-    blogDescription: 'Trải nghiệm xuất bản với đăng nhập, quản lý bài viết, quyền riêng tư, tương tác, tìm kiếm và trang quản trị.',
-    teamWorkflow: 'QUY TRÌNH NHÓM',
+    webApplication: 'XUẤT BẢN KIẾN THỨC',
+    blogDescription: 'Không gian xuất bản có cấu trúc để chia sẻ kiến thức, với đăng nhập, quản lý bài viết, quyền riêng tư, tương tác, tìm kiếm và trang quản trị.',
+    teamWorkflow: 'QUY TRÌNH CỘNG TÁC',
     pmsDescription: 'Nền tảng quản lý công việc với bốn vai trò, quản lý thành viên, bình luận, lịch sử hoạt động và quy trình từ Todo đến Phê duyệt.',
     projectCapabilities: 'Tính năng dự án',
-    skillsIndex: '02 / NĂNG LỰC',
-    skillsTitle: 'Bộ công cụ thực tiễn để hoàn thiện toàn bộ trải nghiệm.',
-    skillsDescription: 'Tôi phát huy tốt nhất ở giao điểm giữa sản phẩm, frontend, backend và dữ liệu — đủ chiều sâu để gỡ lỗi xuyên suốt các lớp.',
+    skillsIndex: 'CHƯƠNG 02 / BỘ CÔNG CỤ KỸ THUẬT',
+    skillsTitle: 'Năng lực kỹ thuật được rèn qua quy trình giáo dục thực tế.',
+    skillsDescription: 'Tôi kết nối giao diện, backend, dữ liệu và thị giác máy tính để tạo nên trải nghiệm học tập đáng tin cậy.',
     frontendTitle: 'Phát triển Frontend',
     frontendDescription: 'Giao diện responsive, dễ tiếp cận, có trạng thái rõ ràng và cấu trúc component dễ bảo trì.',
     backendTitle: 'Backend & Dữ liệu',
@@ -163,19 +172,19 @@ const translations = {
     practice2: 'Kiểm thử & phát hiện lỗi',
     practice3: 'OOP, MVC & thuật toán',
     practice4: 'Docker & triển khai cơ bản',
-    journeyIndex: '03 / HÀNH TRÌNH',
-    journeyTitle: 'Học nhanh nhất khi công việc tạo ra giá trị thật.',
+    journeyIndex: 'CHƯƠNG 03 / HÀNH TRÌNH HỌC TẬP',
+    journeyTitle: 'Học qua việc xây dựng, kiểm thử và cải tiến hệ thống thực tế.',
     workExperience: 'KINH NGHIỆM LÀM VIỆC',
     olmTitle: 'Thực tập sinh Phát triển Phần mềm · OLM',
     olmDescription: 'Tham gia phát triển phần mềm chấm thi trắc nghiệm tự động thông qua kiểm thử tính năng, phát hiện lỗi, gỡ lỗi và xử lý dữ liệu bài thi bằng thuật toán logic.',
     education: 'HỌC VẤN',
     degree: 'Cử nhân Công nghệ Thông tin',
     university: 'Đại học Sư phạm Hà Nội · Sinh viên năm cuối',
-    contactIndex: '04 / KẾT NỐI',
-    contactTitle: 'Cùng nhau xây dựng một sản phẩm hữu ích.',
-    contactDescription: 'Tôi đang tìm một đội ngũ nơi mình có thể đóng góp xuyên suốt full-stack, học hỏi từ các kỹ sư giỏi và biến yêu cầu thành phần mềm đáng tin cậy.',
+    contactIndex: 'CHƯƠNG 04 / KẾT NỐI',
+    contactTitle: 'Cùng xây dựng trải nghiệm học tập tốt hơn.',
+    contactDescription: 'Tôi đang tìm một đội ngũ nơi công nghệ phục vụ mục tiêu học tập rõ ràng—và nơi tôi có thể đóng góp xuyên suốt full-stack, đồng thời trưởng thành cùng những kỹ sư giỏi.',
     emailMe: 'Gửi email cho tôi',
-    footerNote: 'Thiết kế rõ ràng. Xây dựng chỉn chu.',
+    footerNote: 'Xây dựng vì sự rõ ràng, học tập và giá trị thực.',
     backToTop: 'Về đầu trang',
   },
 };
@@ -232,7 +241,7 @@ function applyTheme(theme) {
   const dictionary = translations[currentLanguage] || translations.en;
   themeToggle?.setAttribute('aria-label', theme === 'dark' ? dictionary.switchLight : dictionary.switchDark);
   themeToggle?.setAttribute('title', theme === 'dark' ? dictionary.switchLight : dictionary.switchDark);
-  themeColor?.setAttribute('content', theme === 'dark' ? '#07111f' : '#eef4f7');
+  themeColor?.setAttribute('content', theme === 'dark' ? '#0a1830' : '#f3f6fa');
 }
 
 applyTheme(savedTheme || preferredTheme);
@@ -273,19 +282,45 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeNavigation();
 });
 
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 1050) closeNavigation();
-});
+let scrollFrame = 0;
 
-window.addEventListener('scroll', () => {
+function updateScrollState() {
+  scrollFrame = 0;
   header?.classList.toggle('is-scrolled', window.scrollY > 16);
+
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0 ? Math.min(window.scrollY / scrollableHeight, 1) : 0;
+  scrollProgress?.style.setProperty('transform', `scaleX(${progress})`);
+
   if (window.scrollY < 320) {
     nav?.querySelectorAll('a').forEach((link) => link.classList.remove('is-active'));
   }
-}, { passive: true });
+}
 
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function requestScrollUpdate() {
+  if (scrollFrame) return;
+  scrollFrame = window.requestAnimationFrame(updateScrollState);
+}
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 1050) closeNavigation();
+  requestScrollUpdate();
+});
+
+window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+updateScrollState();
+
+const reducedMotion = motionQuery.matches;
 const revealItems = document.querySelectorAll('.reveal');
+
+document.querySelector('.hero-copy')?.style.setProperty('--reveal-delay', '40ms');
+document.querySelector('.hero-visual')?.style.setProperty('--reveal-delay', '180ms');
+
+document.querySelectorAll('.project-grid, .capability-grid, .timeline').forEach((group) => {
+  [...group.children]
+    .filter((item) => item.classList.contains('reveal'))
+    .forEach((item, index) => item.style.setProperty('--reveal-delay', `${index * 90}ms`));
+});
 
 if (reducedMotion || !('IntersectionObserver' in window)) {
   revealItems.forEach((item) => item.classList.add('is-visible'));
@@ -317,6 +352,115 @@ if ('IntersectionObserver' in window) {
   }, { rootMargin: '-25% 0px -60%', threshold: [0.05, 0.2, 0.45] });
 
   sections.forEach((section) => sectionObserver.observe(section));
+}
+
+const counters = document.querySelectorAll('[data-counter]');
+
+function getCounterText(element, value) {
+  const pad = Number(element.dataset.countPad || 0);
+  const suffix = element.dataset.countSuffix || '';
+  return `${String(value).padStart(pad, '0')}${suffix}`;
+}
+
+function animateCounter(element) {
+  if (element.dataset.counted === 'true') return;
+  element.dataset.counted = 'true';
+
+  const end = Number(element.dataset.countEnd || 0);
+  const finalText = getCounterText(element, end);
+  element.setAttribute('aria-label', finalText);
+
+  if (reducedMotion) {
+    element.textContent = finalText;
+    return;
+  }
+
+  const startedAt = performance.now();
+  const duration = 1100;
+
+  function tick(now) {
+    const progress = Math.min((now - startedAt) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    element.textContent = getCounterText(element, Math.round(end * eased));
+    if (progress < 1) window.requestAnimationFrame(tick);
+  }
+
+  window.requestAnimationFrame(tick);
+}
+
+if (!('IntersectionObserver' in window)) {
+  counters.forEach(animateCounter);
+} else {
+  const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      animateCounter(entry.target);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.7 });
+
+  counters.forEach((counter) => counterObserver.observe(counter));
+}
+
+if (!reducedMotion && finePointerQuery.matches) {
+  let pointerFrame = 0;
+  let pointerX = 0;
+  let pointerY = 0;
+
+  window.addEventListener('pointermove', (event) => {
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+    if (pointerFrame) return;
+
+    pointerFrame = window.requestAnimationFrame(() => {
+      document.body.style.setProperty('--pointer-x', `${pointerX}px`);
+      document.body.style.setProperty('--pointer-y', `${pointerY}px`);
+      document.body.classList.add('has-pointer-glow');
+      pointerFrame = 0;
+    });
+  }, { passive: true });
+
+  document.documentElement.addEventListener('mouseleave', () => {
+    document.body.classList.remove('has-pointer-glow');
+  });
+
+  const heroVisual = document.querySelector('.hero-visual');
+
+  heroVisual?.addEventListener('pointermove', (event) => {
+    const bounds = heroVisual.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+    heroVisual.style.setProperty('--profile-x', `${x * -9}px`);
+    heroVisual.style.setProperty('--profile-y', `${y * -7}px`);
+    heroVisual.style.setProperty('--system-x', `${x * 13}px`);
+    heroVisual.style.setProperty('--system-y', `${y * 10}px`);
+  });
+
+  heroVisual?.addEventListener('pointerleave', () => {
+    heroVisual.style.setProperty('--profile-x', '0px');
+    heroVisual.style.setProperty('--profile-y', '0px');
+    heroVisual.style.setProperty('--system-x', '0px');
+    heroVisual.style.setProperty('--system-y', '0px');
+  });
+
+  document.querySelectorAll('.project-card, .capability-card').forEach((card) => {
+    card.classList.add('tilt-card');
+
+    card.addEventListener('pointermove', (event) => {
+      const bounds = card.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / bounds.width;
+      const y = (event.clientY - bounds.top) / bounds.height;
+      card.style.setProperty('--tilt-x', `${(0.5 - y) * 4.5}deg`);
+      card.style.setProperty('--tilt-y', `${(x - 0.5) * 5.5}deg`);
+      card.style.setProperty('--glow-x', `${x * 100}%`);
+      card.style.setProperty('--glow-y', `${y * 100}%`);
+    });
+
+    card.addEventListener('pointerleave', () => {
+      card.style.setProperty('--tilt-x', '0deg');
+      card.style.setProperty('--tilt-y', '0deg');
+    });
+  });
 }
 
 document.querySelectorAll('[data-current-year]').forEach((element) => {
