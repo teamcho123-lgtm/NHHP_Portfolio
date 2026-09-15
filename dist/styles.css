@@ -666,6 +666,59 @@ html[data-theme="light"] .theme-icon--moon {
   min-height: 620px;
 }
 
+.education-orbit {
+  position: absolute;
+  z-index: 6;
+  inset: -18px;
+  pointer-events: none;
+}
+
+.education-icon {
+  position: absolute;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--surface-raised) 92%, transparent);
+  box-shadow: 0 10px 30px rgba(3, 12, 28, 0.22), inset 0 -3px 0 rgba(242, 196, 92, 0.12);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.education-icon svg,
+.capability-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.education-icon--book {
+  top: 5%;
+  right: -2%;
+  color: var(--accent-2);
+  animation: education-float-a 5.2s ease-in-out infinite;
+}
+
+.education-icon--cap {
+  top: 44%;
+  left: -5%;
+  color: var(--accent-3);
+  animation: education-float-b 6.1s ease-in-out -1.7s infinite;
+}
+
+.education-icon--assessment {
+  right: -1%;
+  bottom: 13%;
+  color: var(--accent);
+  animation: education-float-c 4.8s ease-in-out -900ms infinite;
+}
+
 .profile-card,
 .system-card {
   border: 1px solid var(--line-strong);
@@ -1532,6 +1585,22 @@ html[data-theme="light"] .theme-icon--moon {
   font-size: 0.75rem;
 }
 
+.capability-card.is-visible .capability-icon svg {
+  animation: module-icon 3.6s ease-in-out infinite;
+}
+
+.capability-card:nth-child(2) .capability-icon svg {
+  animation-delay: -900ms;
+}
+
+.capability-card:nth-child(3) .capability-icon svg {
+  animation-delay: -1.8s;
+}
+
+.capability-card:nth-child(4) .capability-icon svg {
+  animation-delay: -2.7s;
+}
+
 .capability-card h3 {
   max-width: 16ch;
   margin-top: 40px;
@@ -2016,6 +2085,48 @@ html[data-theme="light"] .theme-icon--moon {
   }
 }
 
+@keyframes education-float-a {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-3deg);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) rotate(3deg);
+  }
+}
+
+@keyframes education-float-b {
+  0%,
+  100% {
+    transform: translate3d(0, -4px, 0) rotate(4deg);
+  }
+  50% {
+    transform: translate3d(8px, 5px, 0) rotate(-3deg);
+  }
+}
+
+@keyframes education-float-c {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(2deg);
+  }
+  50% {
+    transform: translate3d(-6px, -8px, 0) rotate(-4deg);
+  }
+}
+
+@keyframes module-icon {
+  0%,
+  100% {
+    opacity: 0.78;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.06);
+  }
+}
+
 @media (max-width: 1050px) {
   .site-header {
     grid-template-columns: 1fr auto;
@@ -2134,6 +2245,23 @@ html[data-theme="light"] .theme-icon--moon {
     display: grid;
     min-height: 0;
     gap: 14px;
+  }
+
+  .education-orbit {
+    position: relative;
+    inset: auto;
+    display: flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .education-icon {
+    position: relative;
+    inset: auto;
+    width: 44px;
+    height: 44px;
   }
 
   .profile-card,
