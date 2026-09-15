@@ -205,7 +205,7 @@ function storePreference(key, value) {
   }
 }
 
-let currentLanguage = getStoredPreference('portfolio-language') || (navigator.language.toLowerCase().startsWith('vi') ? 'vi' : 'en');
+let currentLanguage = getStoredPreference('portfolio-language') || 'en';
 
 function applyLanguage(language) {
   const dictionary = translations[language] || translations.en;
@@ -230,11 +230,10 @@ function applyLanguage(language) {
     label.classList.toggle('is-active', label.dataset.languageLabel === language);
   });
 
-  applyTheme(root.dataset.theme || 'dark');
+  applyTheme(root.dataset.theme || 'light');
 }
 
 const savedTheme = getStoredPreference('portfolio-theme');
-const preferredTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
 
 function applyTheme(theme) {
   root.dataset.theme = theme;
@@ -244,7 +243,7 @@ function applyTheme(theme) {
   themeColor?.setAttribute('content', theme === 'dark' ? '#0a1830' : '#f3f6fa');
 }
 
-applyTheme(savedTheme || preferredTheme);
+applyTheme(savedTheme || 'light');
 applyLanguage(currentLanguage);
 
 themeToggle?.addEventListener('click', () => {
